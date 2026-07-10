@@ -144,5 +144,3 @@ FROM user_totals;
 ## Author
 
 Built as a self-guided SQL learning project, designing the schema, writing every query, and debugging each mistake independently along the way.
-
-Feedback and suggestions are welcome — feel free to open an issue or connect!
