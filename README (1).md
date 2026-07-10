@@ -2,15 +2,12 @@
 
 A mini social-media platform, modeled entirely in SQL, built to answer the same questions real platforms like Instagram or TikTok ask about their users every day: which content is going viral, who are the most influential creators, who follows whom, and which followers are actually inactive "ghosts."
 
-This project was built from scratch — schema design, sample data, and every query — as a hands-on way to practice relational database design and intermediate-to-advanced SQL.
-
----
+This project was built from scratch; schema design, sample data, and every query, as a hands-on way to practice relational database design and intermediate-to-advanced SQL.
 
 ## Why This Project
 
 Most SQL practice involves isolated exercises. InstaVibe instead simulates a real, connected product — a social app — so that every query answers an actual business question instead of just demonstrating syntax. It mirrors the kind of analysis a Data Analyst at a social media or content company would actually be asked to do.
 
----
 
 ## Database Schema
 
@@ -35,16 +32,14 @@ users ──┬──< posts ──┬──< likes
 
 - One user → many posts (1-to-many)
 - One post → many likes, many comments (1-to-many)
-- Users can follow other users — `follows` is a self-referencing table, since both `follower_id` and `following_id` point back to `users.id`
+- Users can follow other users;  `follows` is a self-referencing table, since both `follower_id` and `following_id` point back to `users.id`
 
----
 
 ## Tech Stack
 
 - **Database:** MySQL
 - **Concepts used:** Relational schema design, foreign keys, joins, aggregate functions, views, subqueries, CTEs, window functions
 
----
 
 ## How to Run This Project
 
@@ -61,7 +56,6 @@ users ──┬──< posts ──┬──< likes
 mysql -u your_username -p < instaVibe.sql
 ```
 
----
 
 ## Key Analyses
 
@@ -86,7 +80,7 @@ GROUP BY p.id, p.user_id, u.username, p.content_type, p.caption;
 
 ### Ghost Follower Detection — Subquery + UNION
 
-Identifies followers who follow a user but have never liked or commented on any of their posts — a common real-world "fake/inactive follower" check.
+Identifies followers who follow a user but have never liked or commented on any of their posts; a common real-world "fake/inactive follower" check.
 
 ```sql
 SELECT f.follower_id, u.username AS ghost_follower
@@ -119,7 +113,6 @@ FROM user_totals;
 
 > See `instaVibe.sql` for the remaining queries: post feed joins, likes-per-post aggregation, full per-post engagement, mutual follows (self-join), and best post per user (`ROW_NUMBER`).
 
----
 
 ## SQL Concepts Demonstrated
 
@@ -132,7 +125,6 @@ FROM user_totals;
 - Common Table Expressions (CTEs) with `WITH`
 - Window functions — `ROW_NUMBER()`, `RANK()`, `PARTITION BY`
 
----
 
 ## Sample Insights From the Data
 
@@ -141,7 +133,6 @@ FROM user_totals;
 - **Ghost followers found:** users who follow `ali_creates` but have never liked or commented on any of his posts
 - **Mutual connections:** several user pairs follow each other back, forming the platform's "real" social graph
 
----
 
 ## Repository Structure
 
@@ -150,10 +141,8 @@ FROM user_totals;
 └── README.md          # This file
 ```
 
----
 
 ## Author
 
-Built as a self-guided SQL learning project — designing the schema, writing every query, and debugging each mistake independently along the way.
+Built as a self-guided SQL learning project; designing the schema, writing every query, and debugging each mistake independently along the way.
 
-Feedback and suggestions are welcome — feel free to open an issue or connect!
